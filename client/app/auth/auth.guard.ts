@@ -10,8 +10,6 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
 
-        console.log('qaqaqaq');
-
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
 
