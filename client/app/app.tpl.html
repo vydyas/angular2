@@ -1,6 +1,6 @@
 <header class="container">
     <h1>My First Angular App</h1>
-    <nav>
+    <nav *ngIf="authService.isLoggedIn()">
         <ul>
             <li>
                 <a routerLink="/">Index</a>

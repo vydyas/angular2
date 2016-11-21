@@ -5,9 +5,7 @@ import {AuthService} from "../auth/auth.service";
 @Component({
     selector: "index",
     templateUrl: "./app/signin/signin.tpl.html",
-    providers: [
-        AuthService
-    ]
+    providers: [AuthService]
 })
 export class SigninComponent {
 
@@ -20,7 +18,11 @@ export class SigninComponent {
 
     onSignIn(): void {
         this.authService.signIn(this.signInForm).subscribe((data) => {
+
+            console.log(data);
+
             this.router.navigate(['/']);
+
         });
 
     }
