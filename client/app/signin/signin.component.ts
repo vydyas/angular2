@@ -16,18 +16,11 @@ export class SigninComponent {
         password: ''
     };
 
-    constructor(private router: Router, private authService: AuthService) {
-
-    }
+    constructor(private router: Router, private authService: AuthService) {}
 
     onSignIn(): void {
-        console.log('onSignIn');
-        console.log(this.signInForm);
-
-        this.authService.signIn(this.signInForm).subscribe(data => {
-
+        this.authService.signIn(this.signInForm).subscribe((data) => {
             this.router.navigate(['/']);
-
         });
 
     }

@@ -1,26 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import {Injectable} from "@angular/core";
+import {Router, CanActivate} from "@angular/router";
+import {AuthService} from "./auth.service";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
     token: string;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private authService: AuthService) { }
 
     canActivate() {
 
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
-
-        // Check to see if there is a token in local storage
-        if (this.token) {
-            // If they do, return true and allow the user to load the home component
+        // If the user is logged in, allow to access the page
+        if (this.authService.isLoggedIn()) {
             return true;
         }
 
         // If not, they redirect them to the login page
-        this.router.navigate(['/signin']);
+        this.router.navigate(["/signin"]);
         return false;
     }
 }

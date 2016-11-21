@@ -72,4 +72,9 @@ export class AuthService {
         localStorage.removeItem('currentUser');
     }
 
+    isLoggedIn (): boolean {
+        // Check to see if there is a token in local storage
+        return !!this.token;
+    }
+
 }

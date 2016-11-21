@@ -1,9 +1,8 @@
 {
-  "name": "angular-quickstart",
+  "name": "angular2",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
+    "start": "tsc && concurrently \"tsc -w\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
@@ -34,7 +33,6 @@
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
     "typescript": "^2.0.3"
   }
 }

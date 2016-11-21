@@ -1,15 +1,17 @@
-import {NgModule}      from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from "@angular/router";
-
-import {AppComponent} from './app.component';
-import {IndexComponent} from "./index/index.component";
-import {SigninComponent} from "./signin/signin.component";
-import {NotFoundComponent} from "./error/not-found/not-found.component";
+import {RouterModule, Router, NavigationEnd} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
+import {AppComponent} from "./app.component";
+import {IndexComponent} from "./index/index.component";
+import {SigninComponent} from "./signin/signin.component";
+import {NotFoundComponent} from "./error/not-found/not-found.component";
+
 import {AuthGuard} from "./auth/auth.guard";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {AuthService} from "./auth/auth.service";
 
 @NgModule({
     imports: [
@@ -24,6 +26,10 @@ import {AuthGuard} from "./auth/auth.guard";
             path: 'signin',
             component: SigninComponent
         }, {
+            path: 'dashboard',
+            component: DashboardComponent,
+            canActivate: [AuthGuard]
+        }, {
             path: '**',
             component: NotFoundComponent
         }])
@@ -32,13 +38,25 @@ import {AuthGuard} from "./auth/auth.guard";
         AppComponent,
         IndexComponent,
         NotFoundComponent,
-        SigninComponent
+        SigninComponent,
+        DashboardComponent
     ],
     bootstrap: [
         AppComponent
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
+        AuthService
     ]
 })
-export class AppModule { }
+export class AppModule {
+
+    constructor(private router: Router) {
+        router.events.subscribe((val) => {
+            if (val instanceof NavigationEnd) {
+                console.log('NavigationEnd');
+            }
+        })
+    }
+
+}
