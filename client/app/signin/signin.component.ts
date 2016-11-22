@@ -14,17 +14,17 @@ export class SigninComponent {
         password: ''
     };
 
-    constructor(private router: Router, private authService: AuthService) {}
+    constructor(private router: Router, private authService: AuthService) {
+        if (authService.isLoggedIn()) {
+            this.router.navigate(['']);
+        }
+    }
 
     onSignIn(): void {
-        this.authService.signIn(this.signInForm).subscribe((data) => {
-
-            console.log(data);
-
-            this.router.navigate(['/']);
-
-        });
-
+        this.authService.signIn(this.signInForm).subscribe(
+            data => this.router.navigate(['/']),
+            error => console.log('onSignIn', error)
+        );
     }
 
 }

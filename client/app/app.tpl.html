@@ -22,7 +22,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i style="font-size: 19px; color: #FFFFFF;" class="fa fa-user" aria-hidden="true"></i>
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{ currentUser.user.firstName + ' ' + currentUser.user.lastName }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -40,7 +40,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <span (click)="authService.logout()" class="btn btn-default btn-flat">Sign out</span>
                                 </div>
                             </li>
                         </ul>
@@ -50,7 +50,7 @@
         </nav>
     </header>
 
-    <aside class="main-sidebar">
+    <aside class="main-sidebar" *ngIf="authService.isLoggedIn()">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar" style="height: auto;">
             <!-- Sidebar user panel -->
@@ -59,7 +59,7 @@
                     <i style="font-size: 45px; color: #FFFFFF; margin-left: 10px;" class="fa fa-user" aria-hidden="true"></i>
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{ currentUser.user.firstName + ' ' + currentUser.user.lastName }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -67,6 +67,12 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
+                <li>
+                    <a routerLink="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
                 <li>
                     <a routerLink="dashboard">
                         <i class="fa fa-tachometer"></i>

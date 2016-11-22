@@ -7,6 +7,12 @@ import {AuthService} from "./auth/auth.service";
 })
 export class AppComponent {
 
-    constructor(private authService: AuthService) {}
+    private currentUser;
+
+    constructor(private authService: AuthService) {
+
+        this.currentUser = authService.currentUser;
+
+    }
 
 }
