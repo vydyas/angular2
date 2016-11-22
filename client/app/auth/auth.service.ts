@@ -45,7 +45,7 @@ export class AuthService {
         return this.http.post('/api/sign-up', JSON.stringify(data), {
             headers: headers
         }).map((response: Response) => {
-            let currentUser = response.json() && response.json();
+            let currentUser = response.json();
 
             if (currentUser) {
                 this.currentUser = currentUser;

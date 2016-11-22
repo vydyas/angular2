@@ -5,10 +5,8 @@ var config = require('../../config/auth');
 module.exports = function(req, res) {
 
     var newUser = new User({
-        name: {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName
-        },
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
@@ -17,9 +15,6 @@ module.exports = function(req, res) {
     // Attempt to save the user
     newUser.save(function(err) {
         if (err) {
-
-            console.log(err);
-
             return res.status(400).json({
                 success: false,
                 message: 'Please fill in required fields.'

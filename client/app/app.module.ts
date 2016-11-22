@@ -7,6 +7,7 @@ import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {IndexComponent} from "./index/index.component";
 import {SigninComponent} from "./signin/signin.component";
+import {SignupComponent} from "./signup/signup.component";
 import {NotFoundComponent} from "./error/not-found/not-found.component";
 
 import {AuthGuard} from "./auth/auth.guard";
@@ -26,6 +27,9 @@ import {AuthService} from "./auth/auth.service";
             path: 'signin',
             component: SigninComponent
         }, {
+            path: 'signup',
+            component: SignupComponent
+        }, {
             path: 'dashboard',
             component: DashboardComponent,
             canActivate: [AuthGuard]
@@ -39,6 +43,7 @@ import {AuthService} from "./auth/auth.service";
         IndexComponent,
         NotFoundComponent,
         SigninComponent,
+        SignupComponent,
         DashboardComponent
     ],
     bootstrap: [
