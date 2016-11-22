@@ -18,7 +18,7 @@ gulp.task('less', function() {
 gulp.task('watch', function () {
 
     gulp.watch([
-        rootPath + 'assets/less/master.less'
+        rootPath + 'assets/less/**/*.less'
     ], ['less']);
 
 });
