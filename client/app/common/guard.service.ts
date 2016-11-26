@@ -3,21 +3,19 @@ import {Router, CanActivate} from "@angular/router";
 import {AuthService} from "./auth.service";
 
 @Injectable()
-export class AuthGuard implements CanActivate {
-
-    token: string;
+export class GuardService implements CanActivate {
 
     constructor(private router: Router, private authService: AuthService) { }
 
-    canActivate() {
-
+    canActivate(): boolean {
         // If the user is logged in, allow to access the page
+
         if (this.authService.isLoggedIn()) {
             return true;
         }
 
-        // If not, they redirect them to the login page
-        this.router.navigate(["/signin"]);
+        this.router.navigate(['/signin']);
         return false;
     }
+
 }

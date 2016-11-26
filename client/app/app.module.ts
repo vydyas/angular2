@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule, Router, NavigationEnd} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
@@ -10,33 +10,19 @@ import {SigninComponent} from "./signin/signin.component";
 import {SignupComponent} from "./signup/signup.component";
 import {NotFoundComponent} from "./error/not-found/not-found.component";
 
-import {AuthGuard} from "./auth/auth.guard";
+import {GuardService} from "./common/guard.service";
 import {DashboardComponent} from "./dashboard/dashboard.component";
-import {AuthService} from "./auth/auth.service";
+import {AuthService} from "./common/auth.service";
+import {appRoutes} from "./routes";
+import {HeaderComponent} from "./header/header.component";
+import {SidebarComponent} from "./sidebar/sidebar.component";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot([{
-            path: '',
-            component: IndexComponent,
-            canActivate: [AuthGuard]
-        }, {
-            path: 'signin',
-            component: SigninComponent
-        }, {
-            path: 'signup',
-            component: SignupComponent
-        }, {
-            path: 'dashboard',
-            component: DashboardComponent,
-            canActivate: [AuthGuard]
-        }, {
-            path: '**',
-            component: NotFoundComponent
-        }])
+        RouterModule.forRoot(appRoutes)
     ],
     declarations: [
         AppComponent,
@@ -44,24 +30,18 @@ import {AuthService} from "./auth/auth.service";
         NotFoundComponent,
         SigninComponent,
         SignupComponent,
-        DashboardComponent
+        DashboardComponent,
+        HeaderComponent,
+        SidebarComponent
     ],
     bootstrap: [
         AppComponent
     ],
     providers: [
-        AuthGuard,
+        GuardService,
         AuthService
     ]
 })
 export class AppModule {
-
-    constructor(private router: Router) {
-        router.events.subscribe((val) => {
-            if (val instanceof NavigationEnd) {
-                console.log('NavigationEnd');
-            }
-        })
-    }
 
 }

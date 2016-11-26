@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from "../common/auth.service";
 
 @Component({
-    selector: "index",
+    selector: "signin",
     templateUrl: "./app/signin/signin.tpl.html"
 })
 export class SigninComponent {
@@ -15,18 +15,20 @@ export class SigninComponent {
 
     constructor(private router: Router, private authService: AuthService) {
         if (authService.isLoggedIn()) {
-            this.router.navigate(['']);
+            router.navigate(['/']);
         }
     }
 
     onSignIn(): void {
         this.authService.signIn(this.signInForm).subscribe(
             (data) => {
-                console.log('data', data);
-                console.log(this.router);
-                this.router.navigate([''])
+                if (data) {
+                    this.router.navigate(['/'])
+                }
             },
-            error => console.log('onSignIn', error)
+            (error) => {
+                console.log('onSignIn', error)
+            }
         );
     }
 

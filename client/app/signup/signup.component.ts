@@ -1,33 +1,26 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from "../common/auth.service";
+import {User} from "../common/models/user";
 
 @Component({
     selector: "index",
-    templateUrl: "./app/signup/signup.tpl.html",
-    providers: [AuthService]
+    templateUrl: "./app/signup/signup.tpl.html"
 })
 export class SignupComponent {
 
-    signUpForm = {
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: ''
-    };
+    signUpForm: User;
 
     constructor(private router: Router, private authService: AuthService) {
-        // if (authService.isLoggedIn()) {
-        //     this.router.navigate(['']);
-        // }
+
+        this.signUpForm = new User;
+        console.log(this.signUpForm);
+
     }
 
     onSignUp(): void {
         this.authService.signUp(this.signUpForm).subscribe(
-            (data) => {
-                this.router.navigate([''])
-            },
+            data => this.router.navigate(['']),
             error => console.log('onSignUp', error)
         );
     }

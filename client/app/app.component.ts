@@ -1,18 +1,36 @@
-import {Component} from "@angular/core";
-import {AuthService} from "./auth/auth.service";
+import {Component, OnInit} from "@angular/core";
+import {AuthService} from "./common/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
-    selector: "app",
-    templateUrl: "./app/app.tpl.html"
+    selector: "body",
+    templateUrl: "./app/app.tpl.html",
+    host: {
+        "[class.sidebar-collapse]": "sideBarCollapse"
+    }
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    private currentUser;
+    private user;
+    private sideBarCollapse: boolean;
 
-    constructor(private authService: AuthService) {
+    constructor(private router: Router, private authService: AuthService) {
+        this.sideBarCollapse = false;
+    }
 
-        this.currentUser = authService.currentUser;
+    ngOnInit () {
+        this.authService.observable.subscribe(
+            (value) => {
+                console.log('app.component', value);
 
+                this.sideBarCollapse = !this.authService.isLoggedIn();
+
+                this.user = value;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
     }
 
 }
