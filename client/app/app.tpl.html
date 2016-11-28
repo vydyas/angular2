@@ -1,4 +1,4 @@
-<div ngClass="{'wrapper': !authService.isLoggedIn()}">
+<div [ngClass]="{'wrapper': !sideBarCollapse}">
     <header class="main-header" *ngIf="!sideBarCollapse"></header>
 
     <aside class="main-sidebar" *ngIf="!sideBarCollapse"></aside>
