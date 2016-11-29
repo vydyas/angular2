@@ -16,6 +16,8 @@ import {AuthService} from "./common/auth.service";
 import {appRoutes} from "./routes";
 import {HeaderComponent} from "./header/header.component";
 import {SidebarComponent} from "./sidebar/sidebar.component";
+import {ProfileComponent} from "./profile/profile.component";
+import {HttpClient} from "./common/services/http.client.service";
 
 @NgModule({
     imports: [
@@ -32,12 +34,14 @@ import {SidebarComponent} from "./sidebar/sidebar.component";
         SignupComponent,
         DashboardComponent,
         HeaderComponent,
-        SidebarComponent
+        SidebarComponent,
+        ProfileComponent
     ],
     bootstrap: [
         AppComponent
     ],
     providers: [
+        HttpClient,
         GuardService,
         AuthService
     ]

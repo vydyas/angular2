@@ -5,6 +5,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {SignupComponent} from "./signup/signup.component";
 import {SigninComponent} from "./signin/signin.component";
 import {IndexComponent} from "./index/index.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 export const appRoutes: Routes = [{
     path: '',
@@ -13,6 +14,10 @@ export const appRoutes: Routes = [{
 }, {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [GuardService]
+}, {
+    path: 'profile',
+    component: ProfileComponent,
     canActivate: [GuardService]
 }, {
     path: 'signin',

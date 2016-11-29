@@ -10,9 +10,8 @@ module.exports = function(app, express) {
     // Create API group routes
     var apiRoutes = express.Router();
 
-    apiRoutes.get('/qaq', requireAuth, function (req, res, next) {
-        console.log(req);
-    });
+    apiRoutes.get('/user', requireAuth, require('./api/user/show'));
+    apiRoutes.put('/user', requireAuth, require('./api/user/update'));
 
     apiRoutes.post('/auth', require('./api/auth/auth'));
     apiRoutes.post('/sign-up', require('./api/auth/sign-up'));

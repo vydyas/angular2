@@ -1,6 +1,9 @@
-<section class="row">
-    <div class="col-md-4">
-        <h1>Sign up form</h1>
+<div class="register-box">
+    <div class="register-logo">
+        <a routerLink="/"><b>Admin</b>LTE</a>
+    </div>
+    <div class="register-box-body">
+        <p class="login-box-msg">Sign up form</p>
         <form (ngSubmit)="onSignUp()">
             <div class="row">
                 <div class="col-xs-6">
@@ -28,7 +31,19 @@
                 <label>Password</label>
                 <input type="password" class="form-control" name="password" [(ngModel)]="signUpForm.password">
             </div>
-            <button type="submit" class="btn btn-success">Sign up</button>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox">
+                        <label class="">
+                            <input type="checkbox">I agree to the <a routerLink="/terms">terms</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign up</button>
+                </div>
+            </div>
         </form>
+        <a routerLink="/signin" class="text-center">I already have a membership</a>
     </div>
-</section>
+</div>

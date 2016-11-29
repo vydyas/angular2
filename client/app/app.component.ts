@@ -21,10 +21,7 @@ export class AppComponent implements OnInit {
     ngOnInit () {
         this.authService.observable.subscribe(
             (value) => {
-                console.log('app.component', value);
-
                 this.sideBarCollapse = !this.authService.isLoggedIn();
-
                 this.user = value;
             },
             (error) => {
