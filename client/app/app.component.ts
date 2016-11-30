@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthService} from "./common/auth.service";
-import {Router} from "@angular/router";
 
 @Component({
     selector: "body",
@@ -14,7 +13,7 @@ export class AppComponent implements OnInit {
     private user;
     private sideBarCollapse: boolean;
 
-    constructor(private router: Router, private authService: AuthService) {
+    constructor(private authService: AuthService) {
         this.sideBarCollapse = false;
     }
 
