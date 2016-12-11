@@ -23,9 +23,7 @@ export class AppComponent implements OnInit {
                 this.sideBarCollapse = !this.authService.isLoggedIn();
                 this.user = value;
             },
-            (error) => {
-                console.log(error);
-            }
+            error => console.log(error)
         );
     }
 

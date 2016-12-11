@@ -3,13 +3,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-
 import {AppComponent} from "./app.component";
 import {IndexComponent} from "./index/index.component";
 import {SigninComponent} from "./signin/signin.component";
 import {SignupComponent} from "./signup/signup.component";
 import {NotFoundComponent} from "./error/not-found/not-found.component";
-
 import {GuardService} from "./common/guard.service";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AuthService} from "./common/auth.service";
@@ -46,6 +44,4 @@ import {HttpClient} from "./common/services/http.client.service";
         AuthService
     ]
 })
-export class AppModule {
-
-}
+export class AppModule { }

@@ -32,7 +32,7 @@ export class AuthService {
 
     signIn (data): Observable<boolean> {
 
-        var headers = new Headers();
+        let headers = new Headers();
         headers.append('Content-type', 'application/json');
 
         return this.http.post('/api/auth', JSON.stringify(data), {

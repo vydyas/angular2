@@ -21,14 +21,12 @@ export class SigninComponent {
 
     onSignIn(): void {
         this.authService.signIn(this.signInForm).subscribe(
-            (data) => {
-                if (data) {
+            (success) => {
+                if (success) {
                     this.router.navigate(['/'])
                 }
             },
-            (error) => {
-                console.log('onSignIn', error)
-            }
+            error => console.log('onSignIn', error)
         );
     }
 
