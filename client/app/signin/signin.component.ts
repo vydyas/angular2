@@ -1,10 +1,11 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import {AuthService} from "../common/auth.service";
+import {signinHtml} from "./signin.html";
 
 @Component({
     selector: "signin",
-    templateUrl: "./app/signin/signin.tpl.html"
+    template: signinHtml
 })
 export class SigninComponent {
 

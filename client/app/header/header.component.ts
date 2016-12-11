@@ -1,10 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthService} from "../common/auth.service";
 import {Router} from "@angular/router";
+import {headerHtml} from './header.html'
 
 @Component({
     selector: "header",
-    templateUrl: "./app/header/header.tpl.html"
+    template: headerHtml
 })
 
 export class HeaderComponent implements OnInit {

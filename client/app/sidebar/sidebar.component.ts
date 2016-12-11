@@ -1,9 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthService} from "../common/auth.service";
-
+import {sidebarHtml} from "./sidebar.html";
 @Component({
     selector: "aside",
-    templateUrl: "./app/sidebar/sidebar.tpl.html"
+    template: sidebarHtml
 })
 export class SidebarComponent implements OnInit {
 

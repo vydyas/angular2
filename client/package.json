@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "postinstall": "",
-    "build": "webpack --progress",
-    "build:prod": "webpack -p --progress"
+    "dev": "webpack --progress --watch",
+    "prod": "webpack -p --progress"
   },
   "licenses": [
     {

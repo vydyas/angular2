@@ -1,9 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthService} from "./common/auth.service";
+import {appHtml} from "./app.html";
 
 @Component({
     selector: "body",
-    templateUrl: "./app/app.tpl.html",
+    template: appHtml,
     host: {
         "[class.sidebar-collapse]": "sideBarCollapse"
     }

@@ -1,10 +1,11 @@
 import {Component, OnInit} from "@angular/core";
 import {ProfileService} from "./profile.service";
 import {User} from "../common/models/user";
+import {profileHtml} from "./profile.html";
 
 @Component({
     selector: "profile",
-    templateUrl: "./app/profile/profile.tpl.html",
+    template: profileHtml,
     providers: [ProfileService]
 })
 export class ProfileComponent implements OnInit {

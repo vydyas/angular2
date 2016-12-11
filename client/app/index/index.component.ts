@@ -1,8 +1,9 @@
 import {Component} from "@angular/core";
+import {indexHtml} from "./index.html";
 
 @Component({
     selector: "index",
-    templateUrl: "./app/index/index.tpl.html"
+    template: indexHtml
 })
 export class IndexComponent {
 

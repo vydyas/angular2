@@ -1,3 +1,4 @@
+export const signinHtml = `
 <div class="login-box">
     <div class="login-logo">
         <a routerLink="/"><b>Admin</b>LTE</a>
@@ -29,3 +30,4 @@
     </div>
     <!-- /.login-box-body -->
 </div>
+`;

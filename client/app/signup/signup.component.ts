@@ -2,10 +2,11 @@ import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 import {AuthService} from "../common/auth.service";
 import {User} from "../common/models/user";
+import {signupHtml} from "./signup.html";
 
 @Component({
     selector: "index",
-    templateUrl: "./app/signup/signup.tpl.html"
+    template: signupHtml
 })
 export class SignupComponent {
 
